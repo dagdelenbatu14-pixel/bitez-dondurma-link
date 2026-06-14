@@ -180,16 +180,61 @@
   .kapat svg{ width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; }
   .menu-kaydir{
     flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch;
-    padding:16px 14px calc(28px + env(safe-area-inset-bottom));
-    display:flex; flex-direction:column; gap:16px; align-items:center;
+    padding:0 0 calc(28px + env(safe-area-inset-bottom));
+    background:var(--krema);
   }
-  .menu-kaydir img{
-    width:100%; max-width:780px; height:auto; border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35); background:#fff;
+  /* kategori sekmeleri (yapışkan) */
+  .m-sekme{
+    position:sticky; top:0; z-index:3; display:flex; gap:8px; overflow-x:auto;
+    padding:12px 14px; background:rgba(237,245,252,.96);
+    border-bottom:1px solid rgba(14,42,69,.10); -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
   }
+  .m-sekme::-webkit-scrollbar{ display:none; }
+  .m-sekme a{
+    flex:0 0 auto; padding:8px 14px; border-radius:999px; text-decoration:none;
+    font-size:13px; font-weight:700; white-space:nowrap;
+    background:#fff; color:var(--ink); border:1px solid rgba(14,42,69,.12);
+    box-shadow:0 1px 3px rgba(14,42,69,.06);
+  }
+  .m-sekme a:active{ background:var(--mandalina); color:#fff; }
+
+  .m-doc{ max-width:720px; margin:0 auto; padding:20px 16px 8px; }
+
+  .m-sec{ margin-bottom:34px; scroll-margin-top:64px; }
+  .m-sec > .m-bas{
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    padding-bottom:10px; margin-bottom:14px; border-bottom:2px solid var(--mandalina);
+  }
+  .m-bas h3{ font-family:"Fraunces",serif; font-weight:600; font-size:22px; color:var(--mandalina); line-height:1; }
+  .m-bas .en{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; }
+  .m-not{ font-size:12.5px; color:var(--ink-soft); margin:-6px 0 14px; line-height:1.5; }
+
+  .m-altbas{ font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--visne); margin:18px 0 8px; }
+
+  /* fiyat satırı */
+  .m-row{ display:flex; align-items:flex-end; gap:8px; padding:8px 0; border-bottom:1px dashed rgba(14,42,69,.12); }
+  .m-row:last-child{ border-bottom:none; }
+  .m-row .ad{ font-weight:600; font-size:15px; color:var(--ink); }
+  .m-row .ad small{ display:block; font-weight:400; font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em; }
+  .m-row .lider{ flex:1 1 auto; border-bottom:1px dotted rgba(14,42,69,.25); transform:translateY(-4px); }
+  .m-row .fiyat{ font-weight:800; font-size:15px; color:var(--mandalina); white-space:nowrap; }
+
+  /* lezzet grid (fiyatsız) */
+  .m-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
+  .m-grid .ad{ padding:6px 0; border-bottom:1px dashed rgba(14,42,69,.10); font-weight:600; font-size:14px; color:var(--ink); }
+  .m-grid .ad small{ display:block; font-weight:400; font-size:11px; color:var(--ink-soft); }
+  @media (max-width:380px){ .m-grid{ grid-template-columns:1fr; } }
+
+  /* özel tat kartı */
+  .m-ozel{ padding:10px 0; border-bottom:1px dashed rgba(14,42,69,.12); }
+  .m-ozel:last-child{ border-bottom:none; }
+  .m-ozel .ad{ font-weight:700; font-size:15px; color:var(--ink); }
+  .m-ozel .karisim{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+
   .menu-web{
-    display:inline-flex; align-items:center; gap:8px; align-self:center;
-    margin-top:4px; padding:13px 22px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:8px;
+    margin:8px 0 24px; padding:13px 22px; border-radius:999px;
     background:var(--mandalina); color:#fff; text-decoration:none;
     font-weight:700; font-size:14px; box-shadow:0 8px 22px rgba(14,114,190,.4);
   }
@@ -280,13 +325,181 @@
       </button>
     </div>
     <div class="menu-kaydir" id="menu-kaydir">
-      <img src="images/menu-1.jpg" alt="Dondurma çeşitleri menüsü" loading="lazy" />
-      <img src="images/menu-2.jpg" alt="Özel lezzetler menüsü" loading="lazy" />
-      <img src="images/menu-3.jpg" alt="Waffle menüsü" loading="lazy" />
-      <img src="images/menu-4.jpg" alt="Tatlılar menüsü" loading="lazy" />
-      <img src="images/menu-5.jpg" alt="İçecekler menüsü" loading="lazy" />
-      <img src="images/menu-6.jpg" alt="Vegan ve şekersiz dondurma · alerjen listesi" loading="lazy" />
-      <a class="menu-web" id="menu-web" href="#" target="_blank" rel="noopener">Web sitesinde tüm menü →</a>
+      <nav class="m-sekme" aria-label="Menü kategorileri">
+        <a href="#m-cesitler">Dondurma Çeşitleri</a>
+        <a href="#m-ozel">Özel Tatlar</a>
+        <a href="#m-porsiyon">Porsiyon</a>
+        <a href="#m-waffle">Waffle</a>
+        <a href="#m-tatli">Tatlılar</a>
+        <a href="#m-icecek">İçecekler</a>
+        <a href="#m-lokum">Lokum & Reçel</a>
+        <a href="#m-diyet">Vegan & Şekersiz</a>
+      </nav>
+
+      <div class="m-doc">
+
+        <!-- ÇEŞİTLER -->
+        <section class="m-sec" id="m-cesitler">
+          <div class="m-bas"><h3>Dondurma Çeşitleri</h3><span class="en">Ice Cream Flavors</span></div>
+          <p class="m-not">Tamamı günlük üretim. Servis: kornet külah, cam kase, kağıt helva veya karton kap.</p>
+          <div class="m-grid">
+            <div class="ad">Sade <small>Milk</small></div>
+            <div class="ad">Bitter Çikolata <small>Bitter Chocolate</small></div>
+            <div class="ad">Karamel <small>Caramel</small></div>
+            <div class="ad">Bodrum Mandalina <small>Tangerine</small></div>
+            <div class="ad">Sakız <small>Mastic Gum</small></div>
+            <div class="ad">Çilek <small>Strawberry</small></div>
+            <div class="ad">Kavun <small>Melon</small></div>
+            <div class="ad">Vişne <small>Cherry</small></div>
+            <div class="ad">Cappucino <small>Cappucino</small></div>
+            <div class="ad">Gül <small>Rose</small></div>
+            <div class="ad">Bal Badem <small>Honey Almond</small></div>
+            <div class="ad">Hindistan Cevizi <small>Coconut</small></div>
+            <div class="ad">Sütlü Çikolata <small>Milk Chocolate</small></div>
+            <div class="ad">Fıstık <small>Pistachio</small></div>
+            <div class="ad">Oreo <small>Oreo</small></div>
+            <div class="ad">Sade — Şeker İlavesiz <small>Milk, no added sugar</small></div>
+            <div class="ad">Şeftali <small>Peach</small></div>
+            <div class="ad">Karadut <small>Mulberry</small></div>
+            <div class="ad">Limon <small>Lemon</small></div>
+            <div class="ad">Muz <small>Banana</small></div>
+            <div class="ad">Tutti-Frutti <small>Tutti-Frutti</small></div>
+            <div class="ad">Naneli Çikolata <small>Mint Chocolate</small></div>
+            <div class="ad">Yaban Mersini <small>Blueberry</small></div>
+            <div class="ad">Vanilya Badem <small>Vanilla Almond</small></div>
+            <div class="ad">Ceviz <small>Walnut</small></div>
+            <div class="ad">Tahin Susam <small>Tahini Sesame</small></div>
+            <div class="ad">Kestane <small>Chestnut</small></div>
+            <div class="ad">Lotuslu <small>Lotus</small></div>
+          </div>
+        </section>
+
+        <!-- ÖZEL TATLAR -->
+        <section class="m-sec" id="m-ozel">
+          <div class="m-bas"><h3>Özel Tatlar</h3><span class="en">Special Flavors</span></div>
+          <p class="m-not">İmza karışımlarımız — birden çok lezzetin özenle birleştiği toplar.</p>
+
+          <div class="m-altbas">Hafif Kaçamaklar · Light Escapes</div>
+          <div class="m-ozel"><div class="ad">Başlarım Rejimine</div><div class="karisim">Tahin Susam · Bal Badem · Çikolata · Ceviz · Tutti-Frutti · Kestane</div></div>
+          <div class="m-ozel"><div class="ad">Meyve Salatası</div><div class="karisim">Mandalina · Vişne · Karadut · Çilek · Şeftali · Kavun</div></div>
+          <div class="m-ozel"><div class="ad">Entel Dantel</div><div class="karisim">Tahin Susam · Cappucino · Sakız · Çikolata · Ceviz</div></div>
+          <div class="m-ozel"><div class="ad">Yi Gari</div><div class="karisim">Sade · Karamel · Çikolata · Tutti-Frutti · Karadut · Mandalina</div></div>
+
+          <div class="m-altbas">Lezzet Karması · Flavor Mix</div>
+          <div class="m-ozel"><div class="ad">Afrodizyak 5'lisi</div><div class="karisim">Tutti-Frutti · Tahin Susam · Fıstık · Bal Badem · Ceviz</div></div>
+          <div class="m-ozel"><div class="ad">Popüler 4'lü</div><div class="karisim">Bal Badem · Çikolata · Karadut · Mandalina</div></div>
+          <div class="m-ozel"><div class="ad">Muhteşem 6'lı</div><div class="karisim">Karadut · Çikolata · Bal Badem · Mandalina · Ceviz · Sade</div></div>
+          <div class="m-ozel"><div class="ad">Çikolata Karnavalı</div><div class="karisim">Sütlü Çikolata · Naneli Çikolata · Oreo</div></div>
+
+          <div class="m-altbas">Taraftar · Fans</div>
+          <div class="m-ozel"><div class="ad">Karadeniz Fırtınası</div><div class="karisim">Sade · Karadut · Sakız · Çilek · Yaban Mersini</div></div>
+          <div class="m-ozel"><div class="ad">Çarşı Kartal</div><div class="karisim">Sade · Çikolata · Sütlü Çikolata</div></div>
+          <div class="m-ozel"><div class="ad">Sarı Kanarya</div><div class="karisim">Sade · Mandalina · Limon · Çikolata</div></div>
+          <div class="m-ozel"><div class="ad">Aslan Cimbom</div><div class="karisim">Mandalina · Vişne · Limon · Karadut</div></div>
+          <div class="m-ozel"><div class="ad">Örümcek Adam</div><div class="karisim">Sade · Çikolata · Çilek</div></div>
+
+          <div class="m-altbas">Yeniler · New</div>
+          <div class="m-ozel"><div class="ad">Sonsuz Aşk</div><div class="karisim">Çilek · Gül · Çikolata · Karamel · Sade</div></div>
+          <div class="m-ozel"><div class="ad">Aşk Acısı</div><div class="karisim">Karadut · Mandalina · Çikolata · Yaban Mersini</div></div>
+          <div class="m-ozel"><div class="ad">Uzay Serüveni</div><div class="karisim">Çikolata · Çilek · Muz</div></div>
+          <div class="m-ozel"><div class="ad">Kumdan Kale</div><div class="karisim">Kestane · Cappucino · Vanilya Badem · Hindistan Cevizi</div></div>
+        </section>
+
+        <!-- PORSİYON -->
+        <section class="m-sec" id="m-porsiyon">
+          <div class="m-bas"><h3>Dondurma Porsiyon</h3><span class="en">Ice Cream Portions</span></div>
+          <div class="m-row"><span class="ad">Kaşık <small>45–50 gr · tek top</small></span><span class="lider"></span><span class="fiyat">90 ₺</span></div>
+          <div class="m-row"><span class="ad">4 Kaşık <small>Yarım porsiyon</small></span><span class="lider"></span><span class="fiyat">360 ₺</span></div>
+          <div class="m-row"><span class="ad">6 Kaşık <small>Tam porsiyon</small></span><span class="lider"></span><span class="fiyat">540 ₺</span></div>
+          <div class="m-row"><span class="ad">12 Kaşık <small>Extra</small></span><span class="lider"></span><span class="fiyat">1.000 ₺</span></div>
+          <div class="m-row"><span class="ad">Dondurma Kilo <small>1 kg paket</small></span><span class="lider"></span><span class="fiyat">1.500 ₺</span></div>
+          <div class="m-row"><span class="ad">Kağıt Helva <small>Paper candy</small></span><span class="lider"></span><span class="fiyat">40 ₺</span></div>
+        </section>
+
+        <!-- WAFFLE -->
+        <section class="m-sec" id="m-waffle">
+          <div class="m-bas"><h3>Waffle</h3><span class="en">Waffles</span></div>
+          <p class="m-not">Belçika waffle seçenekleri: Kare (çıtır), Çiçek (yumuşak), Sandviç (yumuşak).</p>
+          <div class="m-row"><span class="ad">Çikolatalı Waffle <small>Bol çikolata soslu klasik</small></span><span class="lider"></span><span class="fiyat">230 ₺</span></div>
+          <div class="m-row"><span class="ad">Meyveli Waffle <small>Muz ve çilek</small></span><span class="lider"></span><span class="fiyat">390 ₺</span></div>
+          <div class="m-row"><span class="ad">Dondurmalı Waffle <small>2 top dondurma ile</small></span><span class="lider"></span><span class="fiyat">420 ₺</span></div>
+          <div class="m-row"><span class="ad">Big Waffle <small>2 top dondurma + muz, çilek</small></span><span class="lider"></span><span class="fiyat">540 ₺</span></div>
+        </section>
+
+        <!-- TATLILAR -->
+        <section class="m-sec" id="m-tatli">
+          <div class="m-bas"><h3>Tatlılar</h3><span class="en">Desserts</span></div>
+          <div class="m-row"><span class="ad">Bademli Keşkül <small>White pudding with almond</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Tavuk Göğsü Kazandibi <small>White pudding with chicken breast</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Fırın Sütlaç <small>Baked rice pudding</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Krem Şokola <small>Cream chocolate</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Supangle <small>Supangle</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Çilek Magnolia <small>Strawberry magnolia</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Bisküvili Magnolia <small>Oreo / Lotus</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Traliçe <small>Trileçe</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+        </section>
+
+        <!-- İÇECEKLER -->
+        <section class="m-sec" id="m-icecek">
+          <div class="m-bas"><h3>İçecekler</h3><span class="en">Drinks</span></div>
+
+          <div class="m-altbas">Soft İçecekler · Soft Drinks</div>
+          <div class="m-row"><span class="ad">Su</span><span class="lider"></span><span class="fiyat">30 ₺</span></div>
+          <div class="m-row"><span class="ad">Soda</span><span class="lider"></span><span class="fiyat">50 ₺</span></div>
+          <div class="m-row"><span class="ad">Meyveli Soda</span><span class="lider"></span><span class="fiyat">65 ₺</span></div>
+          <div class="m-row"><span class="ad">Churchill</span><span class="lider"></span><span class="fiyat">90 ₺</span></div>
+          <div class="m-row"><span class="ad">Coca Cola</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Fanta · Sprite</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Ice Tea</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Cappy</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Ayran</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Milkshake</span><span class="lider"></span><span class="fiyat">220 ₺</span></div>
+
+          <div class="m-altbas">Taze Sıkılmış · Fresh Juices</div>
+          <div class="m-row"><span class="ad">Taze Limonata</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Taze Portakal Suyu</span><span class="lider"></span><span class="fiyat">200 ₺</span></div>
+          <div class="m-row"><span class="ad">Taze Vişne</span><span class="lider"></span><span class="fiyat">200 ₺</span></div>
+
+          <div class="m-altbas">Çaylar · Teas</div>
+          <div class="m-row"><span class="ad">Demleme Çay</span><span class="lider"></span><span class="fiyat">45 ₺</span></div>
+          <div class="m-row"><span class="ad">Papatya Çayı</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Melisa Çayı</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Ihlamur</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Ada Çayı</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Yeşil Çay</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+
+          <div class="m-altbas">Kahveler · Coffees</div>
+          <div class="m-row"><span class="ad">Türk Kahvesi</span><span class="lider"></span><span class="fiyat">100 ₺</span></div>
+          <div class="m-row"><span class="ad">Espresso</span><span class="lider"></span><span class="fiyat">140 ₺</span></div>
+          <div class="m-row"><span class="ad">Americano</span><span class="lider"></span><span class="fiyat">140 ₺</span></div>
+          <div class="m-row"><span class="ad">Cappucino</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Latte</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Filtre Kahve</span><span class="lider"></span><span class="fiyat">150 ₺</span></div>
+          <div class="m-row"><span class="ad">Ice Latte</span><span class="lider"></span><span class="fiyat">160 ₺</span></div>
+          <div class="m-row"><span class="ad">Ice Americano</span><span class="lider"></span><span class="fiyat">160 ₺</span></div>
+        </section>
+
+        <!-- LOKUM & REÇEL -->
+        <section class="m-sec" id="m-lokum">
+          <div class="m-bas"><h3>Lokum & Reçel</h3><span class="en">Turkish Delight & Jam</span></div>
+          <div class="m-row"><span class="ad">Reçel <small>Jam</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Mandalina Lokumu <small>Büyük · Large</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Mandalina Lokumu <small>Küçük · Small</small></span><span class="lider"></span><span class="fiyat">200 ₺</span></div>
+          <div class="m-row"><span class="ad">Satsuma Lokumu <small>Büyük · Large</small></span><span class="lider"></span><span class="fiyat">250 ₺</span></div>
+          <div class="m-row"><span class="ad">Satsuma Lokumu <small>Küçük · Small</small></span><span class="lider"></span><span class="fiyat">200 ₺</span></div>
+        </section>
+
+        <!-- DİYET -->
+        <section class="m-sec" id="m-diyet">
+          <div class="m-bas"><h3>Vegan & Şekersiz</h3><span class="en">Vegan & Sugar-Free</span></div>
+          <div class="m-ozel"><div class="ad">Vegan Dondurma</div><div class="karisim">Kavun · Çilek · Şeftali — gerçek meyvelerden, laktoz ve gluten içermez.</div></div>
+          <div class="m-ozel"><div class="ad">Şeker İlavesiz Dondurma</div><div class="karisim">Şeker arası olmayanlar için; Bitez Dondurma şeker ilavesizdir.</div></div>
+          <div class="m-ozel"><div class="ad">Minimum Şekerliler</div><div class="karisim">Karadut · Vişne · Mandalina — formuna özen gösterenler için.</div></div>
+          <p class="m-not" style="margin-top:14px;">Gıda alerjiniz varsa lütfen siparişten önce bilgi isteyiniz. Kalori değerleri ve alerjen listesi için personelimize danışabilirsiniz.</p>
+        </section>
+
+        <a class="menu-web" id="menu-web" href="#" target="_blank" rel="noopener">Web sitesinde tüm menü →</a>
+      </div>
     </div>
   </div>
 
