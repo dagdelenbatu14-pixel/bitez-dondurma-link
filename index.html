@@ -4,22 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Bitez Dondurma · Bitez, Bodrum</title>
-<meta name="description" content="Bitez Dondurma — Bitez'den çıkan efsane lezzet. Menü, Instagram, yol tarifi ve Google'da değerlendirme tek dokunuşla. Adliye Cd. No:48, Bitez / Bodrum." />
+<meta name="description" content="Bitez Dondurma — Bitez'den çıkan efsane lezzet. Menü, Instagram ve Google değerlendirme tek dokunuşla. Adliye Cd. No:48, Bitez / Bodrum." />
 <meta name="theme-color" content="#C9501A" />
-<link rel="icon" href="https://www.bitezdondurma.com/wp-content/uploads/2025/08/bitez-logo-150x140.png" sizes="32x32" />
-<link rel="icon" href="https://www.bitezdondurma.com/wp-content/uploads/2025/08/bitez-logo.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://www.bitezdondurma.com/wp-content/uploads/2025/08/bitez-logo.png" />
+<link rel="icon" href="images/bitez-logo.png" sizes="any" />
+<link rel="apple-touch-icon" href="images/bitez-logo.png" />
 
 <!-- Sosyal paylaşım (WhatsApp / Instagram bio / Facebook önizleme) -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Bitez Dondurma" />
 <meta property="og:title" content="Bitez Dondurma · Bitez, Bodrum" />
-<meta property="og:description" content="Bitez'den çıkan efsane lezzet. Menü, Instagram, yol tarifi ve Google değerlendirme tek dokunuşla." />
+<meta property="og:description" content="Bitez'den çıkan efsane lezzet. Menü, Instagram ve Google değerlendirme tek dokunuşla." />
 <meta property="og:image" content="https://www.bitezdondurma.com/wp-content/uploads/2025/08/bitez-logo.png" />
 <meta property="og:url" content="https://www.bitezdondurma.com" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Bitez Dondurma · Bitez, Bodrum" />
-<meta name="twitter:description" content="Bitez'den çıkan efsane lezzet. Menü, Instagram, yol tarifi ve Google değerlendirme tek dokunuşla." />
+<meta name="twitter:description" content="Bitez'den çıkan efsane lezzet. Menü, Instagram ve Google değerlendirme tek dokunuşla." />
 <meta name="twitter:image" content="https://www.bitezdondurma.com/wp-content/uploads/2025/08/bitez-logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +30,7 @@
     --krema-2:#F4E7D2;
     --ink:#2A1E16;
     --ink-soft:#6B5747;
-    --mandalina:#C9501A;     /* birincil CTA dolgusu */
+    --mandalina:#C9501A;
     --mandalina-parlak:#F08A33;
     --visne:#C2304A;
     --fistik:#7BA428;
@@ -43,7 +42,6 @@
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
-
   html{ -webkit-text-size-adjust:100%; }
 
   body{
@@ -51,13 +49,13 @@
     color:var(--ink);
     background:var(--krema);
     background-image:
-      radial-gradient(120% 80% at 50% -10%, rgba(240,138,51,.18), transparent 60%),
+      radial-gradient(120% 80% at 50% -10%, rgba(240,138,51,.20), transparent 60%),
       radial-gradient(100% 60% at 50% 120%, rgba(19,138,138,.10), transparent 60%);
     background-attachment:fixed;
     min-height:100svh;
     display:flex;
     justify-content:center;
-    padding:clamp(20px,6vw,48px) 20px calc(28px + env(safe-area-inset-bottom));
+    padding:clamp(20px,6vw,44px) 20px calc(28px + env(safe-area-inset-bottom));
     line-height:1.45;
   }
 
@@ -69,57 +67,33 @@
     align-items:stretch;
   }
 
-  /* --- Başlık --- */
+  /* --- Başlık / logo --- */
   .eyebrow{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--mandalina);
-    text-align:center;
-    margin-bottom:18px;
+    font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--mandalina); text-align:center; margin-bottom:16px;
     opacity:0; animation:yukari .6s .05s ease both;
   }
-  .marka{
-    font-family:"Fraunces", serif;
-    font-weight:600;
-    font-size:clamp(40px,13vw,56px);
-    line-height:.98;
-    letter-spacing:-.01em;
-    text-align:center;
-    color:var(--ink);
-    opacity:0; animation:yukari .6s .12s ease both;
+  .logo-sar{
+    display:flex; justify-content:center;
+    opacity:0; animation:pop .6s .12s ease both;
   }
-  .marka em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--mandalina);
+  .logo-sar img{
+    width:min(62%, 230px); height:auto;
+    filter: drop-shadow(0 6px 14px rgba(42,30,22,.18));
   }
   .slogan{
-    font-family:"Fraunces", serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:clamp(15px,4.4vw,18px);
-    color:var(--ink-soft);
-    text-align:center;
-    margin-top:12px;
+    font-family:"Fraunces", serif; font-style:italic; font-weight:500;
+    font-size:clamp(15px,4.4vw,18px); color:var(--ink-soft);
+    text-align:center; margin-top:14px;
     opacity:0; animation:yukari .6s .2s ease both;
   }
 
   /* --- Puan rozeti --- */
   .puan{
-    align-self:center;
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    margin-top:18px;
-    padding:8px 15px;
-    background:var(--beyaz);
-    border-radius:999px;
-    box-shadow:var(--golge);
-    font-size:13.5px;
-    font-weight:500;
-    color:var(--ink);
+    align-self:center; display:inline-flex; align-items:center; gap:9px;
+    margin-top:16px; padding:8px 15px; background:var(--beyaz);
+    border-radius:999px; box-shadow:var(--golge);
+    font-size:13.5px; font-weight:500; color:var(--ink);
     opacity:0; animation:yukari .6s .28s ease both;
   }
   .puan .yildizlar{ color:var(--mandalina-parlak); letter-spacing:1px; font-size:13px; }
@@ -127,44 +101,25 @@
   .puan .adet{ color:var(--ink-soft); }
 
   /* --- Toplar (butonlar) --- */
-  .toplar{
-    margin-top:30px;
-    display:flex;
-    flex-direction:column;
-    gap:13px;
-  }
+  .toplar{ margin-top:28px; display:flex; flex-direction:column; gap:13px; }
 
   .top{
     --renk:var(--kakao);
-    position:relative;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:17px 18px;
-    background:var(--beyaz);
-    border:none;
-    border-radius:20px;
-    box-shadow:var(--golge);
-    text-decoration:none;
-    color:var(--ink);
-    cursor:pointer;
+    position:relative; display:flex; align-items:center; gap:15px;
+    padding:17px 18px; background:var(--beyaz); border:none; border-radius:20px;
+    box-shadow:var(--golge); text-decoration:none; color:var(--ink); cursor:pointer;
     transition:transform .18s ease, box-shadow .18s ease;
-    opacity:0; animation:yukari .55s ease both;
-    -webkit-tap-highlight-color:transparent;
+    opacity:0; animation:yukari .55s ease both; -webkit-tap-highlight-color:transparent;
+    width:100%; text-align:left; font:inherit;
   }
   .top:nth-child(1){ animation-delay:.34s; }
   .top:nth-child(2){ animation-delay:.40s; }
   .top:nth-child(3){ animation-delay:.46s; }
   .top:nth-child(4){ animation-delay:.52s; }
-  .top:nth-child(5){ animation-delay:.58s; }
 
-  /* kaşık/top yuvarlağı */
   .scoop{
-    flex:0 0 auto;
-    width:42px; height:42px;
-    border-radius:50%;
-    background:var(--renk);
-    display:grid; place-items:center;
+    flex:0 0 auto; width:42px; height:42px; border-radius:50%;
+    background:var(--renk); display:grid; place-items:center;
     box-shadow: inset 0 3px 6px rgba(255,255,255,.45), inset 0 -4px 8px rgba(0,0,0,.12);
   }
   .scoop svg{ width:21px; height:21px; stroke:#fff; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
@@ -182,15 +137,11 @@
   .top:active{ transform:translateY(0) scale(.99); box-shadow:var(--golge-bas); }
   .top:focus-visible{ box-shadow:var(--golge), 0 0 0 3px rgba(201,80,26,.45); }
 
-  /* birincil: Google yorum */
   .top.birincil{
-    background:var(--mandalina);
-    color:#fff;
+    background:var(--mandalina); color:#fff;
     box-shadow: 0 1px 2px rgba(201,80,26,.25), 0 12px 26px rgba(201,80,26,.34);
   }
   .top.birincil .scoop{ background:rgba(255,255,255,.20); box-shadow: inset 0 2px 5px rgba(255,255,255,.35), inset 0 -3px 7px rgba(0,0,0,.12); }
-  .top.birincil .scoop svg{ stroke:#fff; }
-  .top.birincil .scoop svg.dolu{ fill:#fff; }
   .top.birincil .yazi .alt{ color:rgba(255,255,255,.82); }
   .top.birincil .ok{ color:#fff; opacity:.8; }
   .top.birincil:hover, .top.birincil:focus-visible{ box-shadow: 0 1px 2px rgba(201,80,26,.25), 0 18px 34px rgba(201,80,26,.42); }
@@ -198,38 +149,64 @@
 
   /* --- alt bilgi --- */
   .altbilgi{
-    margin-top:26px;
-    text-align:center;
-    font-size:13px;
-    color:var(--ink-soft);
-    line-height:1.7;
-    opacity:0; animation:yukari .6s .66s ease both;
+    margin-top:26px; text-align:center; font-size:13px; color:var(--ink-soft);
+    line-height:1.7; opacity:0; animation:yukari .6s .62s ease both;
   }
   .altbilgi .konum{ font-weight:500; color:var(--ink); }
   .altbilgi .acik{ display:inline-flex; align-items:center; gap:6px; }
   .nokta{ width:7px; height:7px; border-radius:50%; background:var(--fistik); display:inline-block; box-shadow:0 0 0 3px rgba(123,164,40,.18); }
+  .imza{ margin-top:18px; text-align:center; font-size:11px; letter-spacing:.04em; color:var(--ink-soft); opacity:.55; }
 
-  .imza{
-    margin-top:18px;
-    text-align:center;
-    font-size:11px;
-    letter-spacing:.04em;
-    color:var(--ink-soft);
-    opacity:.6;
+  /* --- Menü görüntüleyici (overlay) --- */
+  .menu-katman{
+    position:fixed; inset:0; z-index:50; background:rgba(20,12,8,.72);
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    display:none; flex-direction:column;
+  }
+  .menu-katman.acik{ display:flex; animation:fade .25s ease both; }
+  .menu-bar{
+    flex:0 0 auto; display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:14px 16px; padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(251,243,231,.96);
+    border-bottom:1px solid rgba(42,30,22,.10);
+  }
+  .menu-bar .baslik{ font-family:"Fraunces",serif; font-weight:600; font-size:18px; color:var(--ink); }
+  .menu-bar .baslik small{ display:block; font-family:"DM Sans",sans-serif; font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mandalina); }
+  .kapat{
+    flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer;
+    background:var(--ink); color:#fff; display:grid; place-items:center; -webkit-tap-highlight-color:transparent;
+  }
+  .kapat svg{ width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; }
+  .menu-kaydir{
+    flex:1 1 auto; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    padding:16px 14px calc(28px + env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; gap:16px; align-items:center;
+  }
+  .menu-kaydir img{
+    width:100%; max-width:780px; height:auto; border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35); background:#fff;
+  }
+  .menu-web{
+    display:inline-flex; align-items:center; gap:8px; align-self:center;
+    margin-top:4px; padding:13px 22px; border-radius:999px;
+    background:var(--mandalina); color:#fff; text-decoration:none;
+    font-weight:700; font-size:14px; box-shadow:0 8px 22px rgba(201,80,26,.4);
   }
 
   @keyframes yukari{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes pop{ from{ opacity:0; transform:scale(.92); } to{ opacity:1; transform:scale(1); } }
+  @keyframes fade{ from{ opacity:0; } to{ opacity:1; } }
 
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
-    .eyebrow,.marka,.slogan,.puan,.top,.altbilgi{ opacity:1 !important; }
+    .eyebrow,.logo-sar,.slogan,.puan,.top,.altbilgi{ opacity:1 !important; }
   }
 </style>
 </head>
 <body>
   <main class="kart">
     <div class="eyebrow">Bitez Merkez · Bodrum</div>
-    <h1 class="marka">Bitez <em>Dondurma</em></h1>
+    <div class="logo-sar"><img src="images/bitez-logo.png" alt="Bitez Dondurma" width="237" height="140" /></div>
     <p class="slogan">Bitez’den çıkan efsane lezzet</p>
 
     <div class="puan" aria-label="Google puanı 4,4 üzeri 5, 3.290 yorum">
@@ -239,7 +216,7 @@
 
     <nav class="toplar" aria-label="Bağlantılar">
 
-      <a class="top birincil" id="lnk-yorum" href="#" style="--renk:var(--mandalina-parlak)" target="_blank" rel="noopener">
+      <a class="top birincil" id="lnk-yorum" href="#" target="_blank" rel="noopener">
         <span class="scoop" aria-hidden="true">
           <svg class="dolu" viewBox="0 0 24 24"><path d="M12 17.3l-5.6 3.3 1.5-6.3-4.9-4.3 6.4-.5L12 3.5l2.6 6 6.4.5-4.9 4.3 1.5 6.3z"/></svg>
         </span>
@@ -250,16 +227,16 @@
         <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a class="top" id="lnk-menu" href="#" style="--renk:var(--fistik)" target="_blank" rel="noopener">
+      <button class="top" id="btn-menu" type="button" style="--renk:var(--fistik)" aria-haspopup="dialog">
         <span class="scoop" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M5 3h11a3 3 0 0 1 3 3v15l-4-2.2L11 21l-3-2.2L5 21V3z"/><path d="M9 8h6M9 12h6"/></svg>
         </span>
         <span class="yazi">
           <span class="ust">Menü</span>
-          <span class="alt">Dondurma, waffle & tatlılar</span>
+          <span class="alt">Dondurma, waffle, tatlı & içecek</span>
         </span>
         <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
-      </a>
+      </button>
 
       <a class="top" id="lnk-instagram" href="#" style="--renk:var(--visne)" target="_blank" rel="noopener">
         <span class="scoop" aria-hidden="true">
@@ -283,17 +260,6 @@
         <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a class="top" id="lnk-yol" href="#" style="--renk:var(--kakao)" target="_blank" rel="noopener">
-        <span class="scoop" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-        </span>
-        <span class="yazi">
-          <span class="ust">Yol tarifi & konum</span>
-          <span class="alt">Adliye Cd. No:48, Bitez</span>
-        </span>
-        <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
-      </a>
-
     </nav>
 
     <div class="altbilgi">
@@ -304,30 +270,51 @@
     <div class="imza">Bir dokunuşla bağlan 🍦</div>
   </main>
 
+  <!-- Menü görüntüleyici -->
+  <div class="menu-katman" id="menu-katman" role="dialog" aria-modal="true" aria-label="Bitez Dondurma menüsü">
+    <div class="menu-bar">
+      <div class="baslik">Menü<small>Bitez Dondurma</small></div>
+      <button class="kapat" id="menu-kapat" type="button" aria-label="Kapat">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="menu-kaydir" id="menu-kaydir">
+      <img src="images/menu-1.jpg" alt="Dondurma çeşitleri menüsü" loading="lazy" />
+      <img src="images/menu-2.jpg" alt="Özel lezzetler menüsü" loading="lazy" />
+      <img src="images/menu-3.jpg" alt="Waffle menüsü" loading="lazy" />
+      <img src="images/menu-4.jpg" alt="Tatlılar menüsü" loading="lazy" />
+      <img src="images/menu-5.jpg" alt="İçecekler menüsü" loading="lazy" />
+      <img src="images/menu-6.jpg" alt="Vegan ve şekersiz dondurma · alerjen listesi" loading="lazy" />
+      <a class="menu-web" id="menu-web" href="#" target="_blank" rel="noopener">Web sitesinde tüm menü →</a>
+    </div>
+  </div>
+
 <script>
   /* ============================================================
-     AYARLAR — sadece burayı düzenle, gerisi otomatik bağlanır.
+     AYARLAR — sadece burayı düzenle.
      ============================================================ */
   const AYARLAR = {
-    // Google "yorum yaz" deep-link (Bitez merkez Place ID'si gömülü):
     yorum:     "https://search.google.com/local/writereview?placeid=ChIJCw3uS3ptvhQR-MahCMP9xEQ",
-
-    // Menü linki — web sitesindeki gerçek "Lezzetler" sayfasına bağlı:
-    menu:      "https://www.bitezdondurma.com/index.php/lezzetler/",
-
     instagram: "https://instagram.com/bitezdondurma",
     web:       "https://www.bitezdondurma.com",
-
-    // Yol tarifi (aynı Place ID ile Google Maps konum kartı):
-    yol:       "https://www.google.com/maps/search/?api=1&query=Bitez%20Dondurma&query_place_id=ChIJCw3uS3ptvhQR-MahCMP9xEQ"
+    menuWeb:   "https://www.bitezdondurma.com/index.php/lezzetler/"
   };
 
   const ata = (id, url) => { const el = document.getElementById(id); if (el && url) el.href = url; };
   ata("lnk-yorum",     AYARLAR.yorum);
-  ata("lnk-menu",      AYARLAR.menu);
   ata("lnk-instagram", AYARLAR.instagram);
   ata("lnk-web",       AYARLAR.web);
-  ata("lnk-yol",       AYARLAR.yol);
+  ata("menu-web",      AYARLAR.menuWeb);
+
+  /* Menü görüntüleyici aç/kapat */
+  const katman = document.getElementById("menu-katman");
+  const kaydir = document.getElementById("menu-kaydir");
+  const ac = () => { katman.classList.add("acik"); document.body.style.overflow = "hidden"; kaydir.scrollTop = 0; };
+  const kapat = () => { katman.classList.remove("acik"); document.body.style.overflow = ""; };
+  document.getElementById("btn-menu").addEventListener("click", ac);
+  document.getElementById("menu-kapat").addEventListener("click", kapat);
+  katman.addEventListener("click", (e) => { if (e.target === katman) kapat(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") kapat(); });
 </script>
 </body>
 </html>
