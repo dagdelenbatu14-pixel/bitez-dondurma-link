@@ -220,11 +220,15 @@
   .m-row .lider{ flex:1 1 auto; border-bottom:1px dotted rgba(14,42,69,.25); transform:translateY(-4px); }
   .m-row .fiyat{ font-weight:800; font-size:15px; color:var(--mandalina); white-space:nowrap; }
 
-  /* lezzet grid (fiyatsız) */
-  .m-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
-  .m-grid .ad{ padding:6px 0; border-bottom:1px dashed rgba(14,42,69,.10); font-weight:600; font-size:14px; color:var(--ink); }
-  .m-grid .ad small{ display:block; font-weight:400; font-size:11px; color:var(--ink-soft); }
-  @media (max-width:380px){ .m-grid{ grid-template-columns:1fr; } }
+  /* lezzet kartları (görselli) */
+  .m-cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .m-card{ display:flex; align-items:center; gap:11px; background:#fff; border:1px solid rgba(14,42,69,.10); border-radius:16px; padding:9px; box-shadow:0 1px 4px rgba(14,42,69,.06); }
+  .m-card img{ width:62px; height:62px; flex:0 0 auto; border-radius:12px; object-fit:cover; background:#F2F8FD; }
+  .m-card .ad{ font-weight:700; font-size:13.5px; color:var(--ink); line-height:1.15; }
+  .m-card .ad small{ display:block; font-weight:400; font-size:11px; color:var(--ink-soft); margin-top:1px; }
+  @media (min-width:560px){ .m-cards{ grid-template-columns:repeat(3,1fr); } }
+  .m-diger{ margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.6; }
+  .m-diger b{ color:var(--ink); font-weight:700; }
 
   /* özel tat kartı */
   .m-ozel{ padding:10px 0; border-bottom:1px dashed rgba(14,42,69,.12); }
@@ -342,36 +346,29 @@
         <section class="m-sec" id="m-cesitler">
           <div class="m-bas"><h3>Dondurma Çeşitleri</h3><span class="en">Ice Cream Flavors</span></div>
           <p class="m-not">Tamamı günlük üretim. Servis: kornet külah, cam kase, kağıt helva veya karton kap.</p>
-          <div class="m-grid">
-            <div class="ad">Sade <small>Milk</small></div>
-            <div class="ad">Bitter Çikolata <small>Bitter Chocolate</small></div>
-            <div class="ad">Karamel <small>Caramel</small></div>
-            <div class="ad">Bodrum Mandalina <small>Tangerine</small></div>
-            <div class="ad">Sakız <small>Mastic Gum</small></div>
-            <div class="ad">Çilek <small>Strawberry</small></div>
-            <div class="ad">Kavun <small>Melon</small></div>
-            <div class="ad">Vişne <small>Cherry</small></div>
-            <div class="ad">Cappucino <small>Cappucino</small></div>
-            <div class="ad">Gül <small>Rose</small></div>
-            <div class="ad">Bal Badem <small>Honey Almond</small></div>
-            <div class="ad">Hindistan Cevizi <small>Coconut</small></div>
-            <div class="ad">Sütlü Çikolata <small>Milk Chocolate</small></div>
-            <div class="ad">Fıstık <small>Pistachio</small></div>
-            <div class="ad">Oreo <small>Oreo</small></div>
-            <div class="ad">Sade — Şeker İlavesiz <small>Milk, no added sugar</small></div>
-            <div class="ad">Şeftali <small>Peach</small></div>
-            <div class="ad">Karadut <small>Mulberry</small></div>
-            <div class="ad">Limon <small>Lemon</small></div>
-            <div class="ad">Muz <small>Banana</small></div>
-            <div class="ad">Tutti-Frutti <small>Tutti-Frutti</small></div>
-            <div class="ad">Naneli Çikolata <small>Mint Chocolate</small></div>
-            <div class="ad">Yaban Mersini <small>Blueberry</small></div>
-            <div class="ad">Vanilya Badem <small>Vanilla Almond</small></div>
-            <div class="ad">Ceviz <small>Walnut</small></div>
-            <div class="ad">Tahin Susam <small>Tahini Sesame</small></div>
-            <div class="ad">Kestane <small>Chestnut</small></div>
-            <div class="ad">Lotuslu <small>Lotus</small></div>
+          <div class="m-cards">
+            <div class="m-card"><img src="images/fl/sade.jpg" alt="Sade dondurma" loading="lazy"/><span class="ad">Sade <small>Milk</small></span></div>
+            <div class="m-card"><img src="images/fl/bitter-cikolata.jpg" alt="Bitter çikolata dondurma" loading="lazy"/><span class="ad">Bitter Çikolata <small>Bitter Chocolate</small></span></div>
+            <div class="m-card"><img src="images/fl/fistik.jpg" alt="Antep fıstıklı dondurma" loading="lazy"/><span class="ad">Antep Fıstığı <small>Pistachio</small></span></div>
+            <div class="m-card"><img src="images/fl/cilek.jpg" alt="Çilek dondurma" loading="lazy"/><span class="ad">Çilek <small>Strawberry</small></span></div>
+            <div class="m-card"><img src="images/fl/visne.jpg" alt="Vişne dondurma" loading="lazy"/><span class="ad">Vişne <small>Cherry</small></span></div>
+            <div class="m-card"><img src="images/fl/karadut.jpg" alt="Karadut dondurma" loading="lazy"/><span class="ad">Karadut <small>Mulberry</small></span></div>
+            <div class="m-card"><img src="images/fl/seftali.jpg" alt="Şeftali dondurma" loading="lazy"/><span class="ad">Şeftali <small>Peach</small></span></div>
+            <div class="m-card"><img src="images/fl/muz.jpg" alt="Muz dondurma" loading="lazy"/><span class="ad">Muz <small>Banana</small></span></div>
+            <div class="m-card"><img src="images/fl/limon.jpg" alt="Limon dondurma" loading="lazy"/><span class="ad">Limon <small>Lemon</small></span></div>
+            <div class="m-card"><img src="images/fl/bal-badem.jpg" alt="Bal badem dondurma" loading="lazy"/><span class="ad">Bal Badem <small>Honey Almond</small></span></div>
+            <div class="m-card"><img src="images/fl/cappucino.jpg" alt="Cappucino dondurma" loading="lazy"/><span class="ad">Cappucino <small>Cappucino</small></span></div>
+            <div class="m-card"><img src="images/fl/kestane.jpg" alt="Kestane dondurma" loading="lazy"/><span class="ad">Kestane <small>Chestnut</small></span></div>
+            <div class="m-card"><img src="images/fl/ceviz.jpg" alt="Ceviz dondurma" loading="lazy"/><span class="ad">Ceviz <small>Walnut</small></span></div>
+            <div class="m-card"><img src="images/fl/tahin-susam.jpg" alt="Tahin susam dondurma" loading="lazy"/><span class="ad">Tahin Susam <small>Tahini Sesame</small></span></div>
+            <div class="m-card"><img src="images/fl/gul.jpg" alt="Gül dondurma" loading="lazy"/><span class="ad">Gül <small>Rose</small></span></div>
+            <div class="m-card"><img src="images/fl/oreo.jpg" alt="Oreo dondurma" loading="lazy"/><span class="ad">Oreo <small>Oreo</small></span></div>
+            <div class="m-card"><img src="images/fl/naneli-cikolata.jpg" alt="Naneli çikolata dondurma" loading="lazy"/><span class="ad">Naneli Çikolata <small>Mint Chocolate</small></span></div>
+            <div class="m-card"><img src="images/fl/mandalina.jpg" alt="Bodrum mandalina dondurma" loading="lazy"/><span class="ad">Bodrum Mandalina <small>Tangerine</small></span></div>
+            <div class="m-card"><img src="images/fl/tutti-frutti.jpg" alt="Tutti-frutti dondurma" loading="lazy"/><span class="ad">Tutti-Frutti <small>Tutti-Frutti</small></span></div>
+            <div class="m-card"><img src="images/fl/sekersiz.jpg" alt="Şeker ilavesiz dondurma" loading="lazy"/><span class="ad">Şeker İlavesiz <small>No added sugar</small></span></div>
           </div>
+          <p class="m-diger"><b>Ayrıca:</b> Karamel · Sakız · Kavun · Sütlü Çikolata · Yaban Mersini · Vanilya Badem · Lotuslu · Hindistan Cevizi</p>
         </section>
 
         <!-- ÖZEL TATLAR -->
