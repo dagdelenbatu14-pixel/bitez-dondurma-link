@@ -494,8 +494,6 @@
           <div class="m-ozel"><div class="ad">Minimum Şekerliler</div><div class="karisim">Karadut · Vişne · Mandalina — formuna özen gösterenler için.</div></div>
           <p class="m-not" style="margin-top:14px;">Gıda alerjiniz varsa lütfen siparişten önce bilgi isteyiniz. Kalori değerleri ve alerjen listesi için personelimize danışabilirsiniz.</p>
         </section>
-
-        <a class="menu-web" id="menu-web" href="#" target="_blank" rel="noopener">Web sitesinde tüm menü →</a>
       </div>
     </div>
   </div>
@@ -507,15 +505,13 @@
   const AYARLAR = {
     yorum:     "https://search.google.com/local/writereview?placeid=ChIJCw3uS3ptvhQR-MahCMP9xEQ",
     instagram: "https://instagram.com/bitezdondurma",
-    web:       "https://www.bitezdondurma.com",
-    menuWeb:   "https://www.bitezdondurma.com/index.php/lezzetler/"
+    web:       "https://www.bitezdondurma.com"
   };
 
   const ata = (id, url) => { const el = document.getElementById(id); if (el && url) el.href = url; };
   ata("lnk-yorum",     AYARLAR.yorum);
   ata("lnk-instagram", AYARLAR.instagram);
   ata("lnk-web",       AYARLAR.web);
-  ata("menu-web",      AYARLAR.menuWeb);
 
   /* Menü görüntüleyici aç/kapat */
   const katman = document.getElementById("menu-katman");
